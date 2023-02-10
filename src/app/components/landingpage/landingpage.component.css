@@ -1,0 +1,59 @@
+.background{
+    background-color: #F72C41;
+    height: 100vh;
+}
+.custom-shape-divider-bottom-1676008926 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1676008926 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 144px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1676008926 .shape-fill {
+    fill: #FFFFFF;
+}
+
+.logo{
+    border: none;
+    border-radius: 50%;
+    height:100px;
+    width: 100px;
+}
+.brain img{
+    width: 100%;
+    height: fit-content;
+}
+button{
+    background-color: #FFFFFF;
+    color: #F72C41;
+    border: none;
+    border-radius:10px;
+    height: 75px;
+    font-size: 2rem;
+    margin:10px;
+    font-weight: bold;
+}
+button:hover{
+    color: #FFFFFF;
+    background-color: #F72C41;
+}
+
+h1,p{
+    color:#FFFFFF;
+    font-family:'Chunk Regular';
+    font-size: 60px;
+}
+p{
+    font-size:20px;
+}

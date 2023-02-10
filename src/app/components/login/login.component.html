@@ -1,0 +1,35 @@
+<h1 class="text-center">Login Here</h1>
+<form [formGroup]="LoginForm" (ngSubmit)="OnSubmit()">
+    <!-- username -->
+    <mat-form-field appearance="outline" class="w-100">
+        <mat-label>User Name</mat-label>
+        <input formControlName="username" matInput placeholder="Abdul101">
+        <mat-icon matSuffix>public</mat-icon>
+        <mat-hint>Enter your username</mat-hint>
+
+    </mat-form-field>
+    <div *ngIf="username.invalid && (username.dirty || username.touched)">
+        <mat-error *ngIf="username.errors?.['required'] ">
+            User Name is required
+        </mat-error>
+
+    </div>
+    <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Password</mat-label>
+        <input formControlName="password" type="password" matInput placeholder="password">
+        <mat-icon matSuffix>lock</mat-icon>
+        <mat-hint>Enter your password</mat-hint>
+    </mat-form-field>
+    <div *ngIf="password.invalid && (password.dirty || password.touched)">
+        <mat-error *ngIf="password.errors?.['required'] ">
+            Password is required
+        </mat-error>
+
+    </div>
+
+    <div class="container text-center">
+        <button [disabled]="!LoginForm.valid" type="submit" mat-raised-button color="primary">
+            Login
+        </button>
+    </div>
+</form>
