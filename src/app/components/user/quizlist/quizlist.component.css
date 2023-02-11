@@ -1,0 +1,22 @@
+.title{
+    font-family: Lobster;
+    font-size: 20px;
+}
+.category{
+    font-family: 'Fine';
+    font-size:15px;
+}
+.text{
+    font-family: 'Chunk';
+    font-size: 20px;
+}
+.btn-start{
+    border: none;
+    font-family: 'Squid Game';
+    color:#f57;
+    background-color: #fff;
+}
+.btn-start:hover{
+    color:#fff;
+    background-color: #f57;
+}

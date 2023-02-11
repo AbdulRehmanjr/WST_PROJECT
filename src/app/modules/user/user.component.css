@@ -10,8 +10,10 @@
   }
 mat-drawer-container{
   background-color: #ffffff;
+  z-index: 1000;
 }
 .menu-btn{
+  z-index: 99999999;
   background-color: #ffffff;
   color: #f57;
   border: none;

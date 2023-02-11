@@ -30,7 +30,6 @@ import {MatSelectModule} from '@angular/material/select';
   imports: [
     BrowserModule,
     AppRoutingModule,
-
     BrowserAnimationsModule,
     MatButtonModule,
     NgxTypedJsModule,

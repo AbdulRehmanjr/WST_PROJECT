@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+      <div *ngFor="let quiz of quizList" class="col-sm-6 col-md-4">
+        <mat-card>
+            <mat-card-header>
+              <mat-card-title-group>
+                <mat-card-title class="title">{{ quiz.name }}</mat-card-title>
+                <mat-card-subtitle class="category">{{ quiz.category }}</mat-card-subtitle>
+                <img mat-card-sm-image src="../../../../assets/images/quiz.jpg" >
+              </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content>
+                <p class="text">Questions: {{ quiz.numberOfQuestions }}</p>
+                <button class="btn-start">
+                    Start Quiz
+                </button>
+
+            </mat-card-content>
+          </mat-card>
+      </div>
+    </div>
+  </div>
+  

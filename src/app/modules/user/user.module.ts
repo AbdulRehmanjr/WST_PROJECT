@@ -1,15 +1,26 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+
+
 import { UserComponent } from './user.component';
-import {MatSidenavModule} from '@angular/material/sidenav';
 import { SidenavComponent } from '../../components/user/sidenav/sidenav.component';
 import { HeaderComponent } from '../../components/user/header/header.component';
-import { MainComponent } from '../../components/user/main/main.component'
+import { QuizlistComponent } from '../../components/user/quizlist/quizlist.component';
 
+
+import {MatCardModule} from '@angular/material/card';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 const routes:Routes = [
-  {path:'user-dashboard',component:UserComponent}
+  {path:'user-dashboard',component:UserComponent,
+    children:[
+      {
+        path:'',component:QuizlistComponent
+      }
+    ]
+  }
 ]
 
 @NgModule({
@@ -17,10 +28,12 @@ const routes:Routes = [
     UserComponent,
     SidenavComponent,
     HeaderComponent,
-    MainComponent
+    QuizlistComponent,
   ],
   imports: [
+    CommonModule,
     MatSidenavModule,
+    MatCardModule,
     RouterModule.forChild(routes)
   ],
   exports:[
