@@ -6,4 +6,11 @@ button{
     border: none;
     color:#f57;
     font-size:20px;
+    background-color: #fff;
+}
+img{
+    width:150px;
+    height: 150px;
+    border: none;
+    border-radius: 50%;
 }
