@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>Programming Quiz</h2>
+    <div class="row" *ngFor="let question of quiz; let i = index">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            {{question.description}}
+          </div>
+          <div class="card-body">
+            <div class="form-check">
+              <input type="radio" class="form-check-input" id="option1-{{i}}" name="questionOption-{{i}}" [value]="question.option1">
+              <label class="form-check-label" for="option1-{{i}}">{{question.option1}}</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" id="option2-{{i}}" name="questionOption-{{i}}" [value]="question.option2">
+              <label class="form-check-label" for="option2-{{i}}">{{question.option2}}</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" id="option3-{{i}}" name="questionOption-{{i}}" [value]="question.option3">
+              <label class="form-check-label" for="option3-{{i}}">{{question.option3}}</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" id="option4-{{i}}" name="questionOption-{{i}}" [value]="question.option4">
+              <label class="form-check-label" for="option4-{{i}}">{{question.option4}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

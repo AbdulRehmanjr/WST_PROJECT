@@ -7,17 +7,21 @@ import { UserComponent } from './user.component';
 import { SidenavComponent } from '../../components/user/sidenav/sidenav.component';
 import { HeaderComponent } from '../../components/user/header/header.component';
 import { QuizlistComponent } from '../../components/user/quizlist/quizlist.component';
+import { QuizComponent } from '../../components/user/quiz/quiz.component';
 
 
 import {MatCardModule} from '@angular/material/card';
 import {MatSidenavModule} from '@angular/material/sidenav';
 
 
+
 const routes:Routes = [
   {path:'user-dashboard',component:UserComponent,
     children:[
       {
-        path:'',component:QuizlistComponent
+        path:'',component:QuizlistComponent,
+      },{
+        path:'quiz',component:QuizComponent
       }
     ]
   }
@@ -29,6 +33,7 @@ const routes:Routes = [
     SidenavComponent,
     HeaderComponent,
     QuizlistComponent,
+    QuizComponent,
   ],
   imports: [
     CommonModule,
