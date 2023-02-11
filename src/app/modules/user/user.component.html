@@ -1,0 +1,26 @@
+<div class="container-fluid background">
+    <div class="row">
+        <mat-drawer-container class="height-full"  autosize>
+            <mat-drawer #drawer mode="side">
+             <app-sidenav></app-sidenav>
+            </mat-drawer>
+            <div>
+                <button class="menu-btn" type="button" mat-button (click)="drawer.toggle()">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+          
+        <div class="row">
+            <router-outlet></router-outlet>
+        </div>
+        </mat-drawer-container>
+        
+    </div>
+      
+      
+    <div class="row">
+        <footer>
+
+        </footer>
+    </div>
+</div>

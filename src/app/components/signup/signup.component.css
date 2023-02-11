@@ -1,0 +1,22 @@
+.card{
+    z-index:100;
+    height: fit-content;
+}
+img{
+    width: 100%;
+    height:620px;
+    border-radius: 1rem 0 0 1rem;
+}
+.h1,.btn{
+    color:#F72C41;
+}
+.back-btn{
+    position: fixed;
+    top:25px;
+    right:200px;
+    z-index: 10000;
+    background-color: #fff;
+    color:#F72C41;
+    border: none;
+    font-size: 50px;
+}

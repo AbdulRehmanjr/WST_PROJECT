@@ -1,35 +1,58 @@
-<h1 class="text-center">Login Here</h1>
-<form [formGroup]="LoginForm" (ngSubmit)="OnSubmit()">
-    <!-- username -->
-    <mat-form-field appearance="outline" class="w-100">
-        <mat-label>User Name</mat-label>
-        <input formControlName="username" matInput placeholder="Abdul101">
-        <mat-icon matSuffix>public</mat-icon>
-        <mat-hint>Enter your username</mat-hint>
-
-    </mat-form-field>
-    <div *ngIf="username.invalid && (username.dirty || username.touched)">
-        <mat-error *ngIf="username.errors?.['required'] ">
-            User Name is required
-        </mat-error>
-
+<button class="back-btn" routerLink="">
+  <i class="fas fa-arrow-left"></i>
+</button>
+<div class="container-fluid">
+      <div class="row mt-4 d-flex justify-content-center align-items-center">
+        <div class="col-md-10">
+          <div class="card" style="border-radius: 1rem;">
+           <div class="row">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="../../../assets/images/login_form.jpg"  alt="login form">
+            </div>
+            <div class="col-md-6 col-md-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+                
+                        <div class="d-flex align-items-center mb-3 pb-1">
+                            <i class="fas fa-cubes fa-2x me-3" style="color: #F72C41;"></i>
+                            <span class="h1 fw-bold mb-0">QUIZ SPY</span>
+                          </div>
+                          <form [formGroup]="LoginForm" (ngSubmit)="OnSubmit()">
+                            <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your Account</h5>
+                            <div class="form-outline mb-4">
+                              <input type="text"  formControlName = "username" class="form-control form-control-lg" />
+                              <label class="form-label" >User Name</label>
+                            </div>
+                            <ng-container *ngIf="username.invalid && (username.dirty || username.touched)">
+                                <mat-error *ngIf="username.errors?.['required'] ">
+                                    User Name is required
+                                </mat-error>
+                            </ng-container> 
+                                
+                            <div class="form-outline mb-4">
+                              <input type="password" formControlName="password"class="form-control form-control-lg" />
+                              <label class="form-label">Password</label>
+                            </div>
+                            <ng-container *ngIf="password.invalid && (password.dirty || password.touched)">
+                                <mat-error *ngIf="password.errors?.['required'] ">
+                                    Password is required
+                                </mat-error>
+                            </ng-container> 
+          
+                            <div class="pt-1 mb-4">
+                              <button  [disabled]="!LoginForm.valid" type="submit" class="btn btn-lg btn-block">Login</button>
+                              
+                            </div>
+          
+                            <!-- <a class="small text-muted" href="#!">Forgot password?</a>
+                            <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
+                                style="color: #393f81;">Register here</a></p>
+                            <a href="#!" class="small text-muted">Terms of use.</a>
+                            <a href="#!" class="small text-muted">Privacy policy</a> -->
+                          </form> 
+                </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <mat-form-field appearance="outline" class="w-100">
-        <mat-label>Password</mat-label>
-        <input formControlName="password" type="password" matInput placeholder="password">
-        <mat-icon matSuffix>lock</mat-icon>
-        <mat-hint>Enter your password</mat-hint>
-    </mat-form-field>
-    <div *ngIf="password.invalid && (password.dirty || password.touched)">
-        <mat-error *ngIf="password.errors?.['required'] ">
-            Password is required
-        </mat-error>
-
-    </div>
-
-    <div class="container text-center">
-        <button [disabled]="!LoginForm.valid" type="submit" mat-raised-button color="primary">
-            Login
-        </button>
-    </div>
-</form>

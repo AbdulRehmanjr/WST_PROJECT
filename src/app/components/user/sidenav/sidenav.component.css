@@ -1,0 +1,9 @@
+#aside{
+    display: flex;
+    flex-direction: column;
+}
+button{
+    border: none;
+    color:#f57;
+    font-size:20px;
+}

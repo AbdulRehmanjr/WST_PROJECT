@@ -1,1 +1,77 @@
-<p>signup works!</p>
+ <button class="back-btn" routerLink="">
+    <i class="fas fa-arrow-left"></i>
+  </button>
+<div class="container-fluid">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-md-10">
+      <div class="card" style="border-radius: 1rem;">
+        <div class="row">
+          <div class="col-md-6 col-lg-5 d-none d-md-block">
+            <img src="../../../assets/images/login_form.jpg" alt="login form">
+          </div>
+          <div class="col-md-6 col-md-7 d-flex align-items-center">
+            <div class="card-body text-black">
+              <div class="d-flex align-items-center mb-2 pb-1">
+                <i class="fas fa-cubes fa-2x me-2" style="color: #F72C41;"></i>
+                <span class="h1 fw-bold mb-0">QUIZ SPY</span>
+              </div>
+              <form [formGroup]="SignupForm" (ngSubmit)="OnSubmit()">
+                <h5 class="fw-normal" style="letter-spacing: 1px;">Sign into your Account</h5>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-outline mb-2">
+                      <input type="text" formControlName="username" class="form-control form-control-lg" />
+                      <label class="form-label">User Name</label>
+                    </div>
+                    <ng-container *ngIf="username.invalid && (username.dirty || username.touched)">
+                      <mat-error *ngIf="username.errors?.['required'] ">
+                        User Name is required
+                      </mat-error>
+                    </ng-container>
+
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-outline mb-2">
+                      <input type="email" formControlName="email" class="form-control form-control-lg" />
+                      <label class="form-label">Email</label>
+                    </div>
+                    <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
+                      <mat-error *ngIf="email.errors?.['required'] ">
+                        Email is required
+                      </mat-error>
+                    </ng-container>
+                  </div>
+                </div>
+                <mat-form-field class="form-outline mb-2">
+                  <mat-label>Choose one</mat-label>
+                  <mat-select formControlName="role">
+                    <mat-option value="TEACHER">Teacher</mat-option>
+                    <mat-option value="STUDENT">Student</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <ng-container *ngIf="role.invalid && (role.dirty || role.touched)">
+                  <mat-error *ngIf="role.errors?.['required'] ">
+                    Role is required
+                  </mat-error>
+                </ng-container>
+                <div class="form-outline mb-2">
+                  <input type="password" formControlName="password" class="form-control form-control-lg" />
+                  <label class="form-label">Password</label>
+                </div>
+                <ng-container *ngIf="password.invalid && (password.dirty || password.touched)">
+                  <mat-error *ngIf="password.errors?.['required'] ">
+                    Password is required
+                  </mat-error>
+                </ng-container>
+                
+                  <button [disabled]="!SignupForm.valid" type="submit" class="btn btn-lg btn-block">Register</button>
+
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

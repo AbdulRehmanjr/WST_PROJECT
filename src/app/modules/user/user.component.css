@@ -1,0 +1,19 @@
+.background{
+  position: absolute;
+  top:0;
+  left:0;
+  background-image: linear-gradient(to left, #ffffff);
+    height: 100vh;
+}
+.height-full{
+    height: 100vh;
+  }
+mat-drawer-container{
+  background-color: #ffffff;
+}
+.menu-btn{
+  background-color: #ffffff;
+  color: #f57;
+  border: none;
+  font-size: 30px;
+}
