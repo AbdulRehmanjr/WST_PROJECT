@@ -8,10 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
-import { LandingpageComponent } from './components/landingpage/landingpage.component';
-import { TeacherComponent } from './modules/teacher/teacher.component';
+import { LoginComponent } from './components/generals/login/login.component';
+import { SignupComponent } from './components/generals/signup/signup.component';
+import { LandingpageComponent } from './components/generals/landingpage/landingpage.component';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -24,8 +23,7 @@ import {MatSelectModule} from '@angular/material/select';
     AppComponent,
     LoginComponent,
     SignupComponent,
-    LandingpageComponent,
-    TeacherComponent
+    LandingpageComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +34,8 @@ import {MatSelectModule} from '@angular/material/select';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatSelectModule
+  ],
+  exports:[
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,23 @@
-<p>teacher works!</p>
+<div class="container-fluid background">
+    <div class="row">
+        <mat-drawer-container class="height-full"  autosize>
+            <mat-drawer #drawer mode="side">
+             <app-sidenav [view]="1"></app-sidenav>
+            </mat-drawer>
+            <div>
+                <button class="menu-btn" type="button" mat-button (click)="drawer.toggle()">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        <router-outlet></router-outlet>
+        </mat-drawer-container>
+        
+    </div>
+      
+      <!-- okay -->
+    <div class="row">
+        <footer>
+
+        </footer>
+    </div>
+</div>

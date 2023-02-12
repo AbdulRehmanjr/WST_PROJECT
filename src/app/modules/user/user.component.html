@@ -2,7 +2,7 @@
     <div class="row">
         <mat-drawer-container class="height-full"  autosize>
             <mat-drawer #drawer mode="side">
-             <app-sidenav></app-sidenav>
+             <app-sidenav [view]="2"></app-sidenav>
             </mat-drawer>
             <div>
                 <button class="menu-btn" type="button" mat-button (click)="drawer.toggle()">

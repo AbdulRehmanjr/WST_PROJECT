@@ -4,11 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 import { UserComponent } from './user.component';
-import { SidenavComponent } from '../../components/user/sidenav/sidenav.component';
 import { HeaderComponent } from '../../components/user/header/header.component';
 import { QuizlistComponent } from '../../components/user/quizlist/quizlist.component';
 import { QuizComponent } from '../../components/user/quiz/quiz.component';
 
+
+import { SharedModule } from '../shared/shared.module';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -30,13 +31,13 @@ const routes:Routes = [
 @NgModule({
   declarations: [
     UserComponent,
-    SidenavComponent,
     HeaderComponent,
     QuizlistComponent,
     QuizComponent,
   ],
   imports: [
     CommonModule,
+    SharedModule,
     MatSidenavModule,
     MatCardModule,
     RouterModule.forChild(routes)
