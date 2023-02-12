@@ -7,19 +7,19 @@
             <button (click)="home()"><i class="fa-solid fa-house">Home</i></button>
         </div>
         <div class="btn">
-            <button><i class="fa-solid fa-user"></i>Profile</button>
+            <button ><i class="fa-solid fa-user"></i>Profile</button>
         </div>
         <div class="btn">
-            <button><i class="fa-solid fa-list"></i>Categories</button>
+            <button routerLink="categories"><i class="fa-solid fa-list"></i>Categories</button>
         </div>
         <div class="btn">
-            <button><i class="fa-solid fa-plus"></i> Add Category</button>
+            <button routerLink="add-category"><i class="fa-solid fa-plus"></i> Add Category</button>
         </div>
         <div class="btn">
-            <button><i class="fa-solid fa-brain"></i>Quiz</button>
+            <button routerLink="quizzes"><i class="fa-solid fa-brain"></i>Quiz</button>
         </div>
         <div class="btn">
-            <button><i class="fa-solid fa-plus"></i>Add Quiz</button>
+            <button routerLink="add-quiz"><i class="fa-solid fa-plus"></i>Add Quiz</button>
         </div>
         <div class="btn">
             <button (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i>Logout</button>
@@ -34,6 +34,9 @@
         </div>
         <div class="btn">
             <button><i class="fa-solid fa-user">Profile</i></button>
+        </div>
+        <div class="btn">
+            <button routerLink="quizList"><i class="fa-solid fa-house">Quiz</i></button>
         </div>
         <div class="btn">
             <button (click)="logout()"><i class="fa-solid fa-right-from-bracket">Logout</i></button>

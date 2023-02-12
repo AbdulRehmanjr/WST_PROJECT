@@ -1,0 +1,21 @@
+h3{
+    font-family: 'Squid Game';
+    font-weight: bold;
+    color:#F72C41;
+}
+label{
+    font-family: 'Squid Game';
+    font-weight: bold;
+    color:#F72C41;
+}
+button{
+    color:#F72C41;
+        border: 1px solid #F72C41;
+        font-size: 20px;
+}
+button:hover{
+    color: white;
+    background-color:#F72C41;
+    border: 1px solid #F72C41;
+    font-size: 20px;
+}

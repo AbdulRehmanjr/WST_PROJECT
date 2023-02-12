@@ -13,6 +13,7 @@ import { SharedModule } from '../shared/shared.module';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { Quiz } from 'src/app/classes/quiz';
 
 
 
@@ -20,9 +21,15 @@ const routes:Routes = [
   {path:'user-dashboard',component:UserComponent,
     children:[
       {
-        path:'',component:QuizlistComponent,
+        path:'',component:QuizComponent,
+      },
+      {
+        path:'quizList',component:QuizlistComponent,
       },{
         path:'quiz',component:QuizComponent
+      },
+      {
+        path:'**',component:QuizComponent,pathMatch:'full'
       }
     ]
   }

@@ -1,21 +1,24 @@
-import { Component, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import Swal from 'sweetalert2';
-
+import { Component, Input, OnInit} from '@angular/core';
+import { ActivatedRoute, Router ,NavigationEnd, NavigationStart} from '@angular/router';
+import swal from 'sweetalert2'
 
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.css']
 })
-export class SidenavComponent {
+export class SidenavComponent implements OnInit{
 
   @Input()
   view:number
-  constructor(private _active:ActivatedRoute,private _route:Router){}
+  constructor(private _route:Router){}
+  ngOnInit(): void {
+  }
 
-
-
+ 
+  /**
+   * navigations
+   */
   home():void{
     
     if(this.view==1){
@@ -23,7 +26,7 @@ export class SidenavComponent {
     }
     else{
       if(this._route.url ==='/user-dashboard/quiz'){
-        Swal.fire({
+        swal.fire({
           title: 'Are you sure?',
           text: "You won't be able to revert this!",
           icon: 'warning',
@@ -43,9 +46,10 @@ export class SidenavComponent {
     }
     
   }
+
   logout():void{
     if(this._route.url ==='/user-dashboard/quiz'){
-      Swal.fire({
+      swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
         icon: 'warning',

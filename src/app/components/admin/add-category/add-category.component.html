@@ -1,1 +1,37 @@
-<p>add-category works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <mat-card class="mt20">
+            <h3 class="text-center">Add category details</h3>
+            <form [formGroup]="addcategoryForm"(ngSubmit)="OnSubmit()">
+                <!-- username -->
+                <div class="form-outline mb-4">
+                    <input type="text"  formControlName = "name" class="form-control form-control-lg" />
+                    <label class="form-label" >Title</label>
+                  </div>
+                  <ng-container *ngIf="name.invalid && (name.dirty || name.touched)">
+                      <mat-error *ngIf="name.errors?.['required'] ">
+                          Title is required
+                      </mat-error>
+                  </ng-container> 
+                      
+                  <div class="form-outline mb-4">
+                    <textarea cols="30" rows="10" formControlName="description"class="form-control form-control-lg">
+                    </textarea>
+                    <label class="form-label">Password</label>
+                  </div>
+                  <ng-container *ngIf="description.invalid && (description.dirty || description.touched)">
+                      <mat-error *ngIf="description.errors?.['required'] ">
+                        Description is required
+                      </mat-error>
+                  </ng-container> 
+                <div class="container text-center">
+                    <button [disabled]="!addcategoryForm.valid"type="submit"mat-raised-button color="primary">
+                       Add Category
+                    </button>
+                </div>
+            </form>
+        </mat-card>
+        </div>
+    </div>
+</div>

@@ -18,10 +18,10 @@ const routes: Routes = [
 @NgModule({
   declarations:[],
   imports: [
-    RouterModule.forRoot(routes),
     UserModule,
-    TeacherModule
+    TeacherModule,
+    RouterModule.forRoot(routes),
   ],
-  exports: [RouterModule,]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

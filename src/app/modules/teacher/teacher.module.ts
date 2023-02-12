@@ -1,22 +1,38 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { TeacherComponent } from './teacher.component';
-
-import { SharedModule } from '../shared/shared.module';
-import {MatCardModule} from '@angular/material/card';
-import {MatSidenavModule} from '@angular/material/sidenav';
 import { CategoriesComponent } from '../../components/admin/categories/categories.component';
 import { AddCategoryComponent } from '../../components/admin/add-category/add-category.component';
 import { AddQuizComponent } from '../../components/admin/add-quiz/add-quiz.component';
 import { QuizComponent } from '../../components/admin/quiz/quiz.component';
 import { AddQuestionsComponent } from '../../components/admin/add-questions/add-questions.component';
+import { QuizlistComponent } from 'src/app/components/user/quizlist/quizlist.component';
 
-const routes:Routes = [
+import { SharedModule } from '../shared/shared.module';
+
+import { MatCardModule } from '@angular/material/card';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table'
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+
+const routes: Routes = [
   {
-    path:'admin-dashboard',component:TeacherComponent
-  }
+    path: 'admin-dashboard', component: TeacherComponent,
+    children: [
+      { path: 'categories', component: CategoriesComponent },
+      { path: 'add-category', component: AddCategoryComponent },
+      { path: 'quizzes', component: QuizlistComponent },
+      { path: 'add-quiz', component: AddQuizComponent },
+      { path: 'add-question/:quizId', component: AddQuestionsComponent },
+    ]
+  },
+
+
 ]
 
 @NgModule({
@@ -32,10 +48,14 @@ const routes:Routes = [
     MatCardModule,
     MatSidenavModule,
     SharedModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes),
-    CommonModule
+    CommonModule,
   ],
-  exports:[
+  exports: [
     RouterModule
   ]
 })

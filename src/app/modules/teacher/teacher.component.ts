@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-teacher',
   templateUrl: './teacher.component.html',
   styleUrls: ['./teacher.component.css']
 })
-export class TeacherComponent {
+export class TeacherComponent implements OnInit{
+  ngOnInit(): void {
+    console.log('intializing admin')
+  }
 
 }
