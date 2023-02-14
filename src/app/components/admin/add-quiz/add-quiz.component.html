@@ -1,1 +1,19 @@
-<p>add-quiz works!</p>
+<div class="row">
+<div class="col-md-4 offset-md-4">
+    <img src="../../../../assets/images/file.png" alt="file upload">
+</div>
+</div>
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <p-fileUpload mode="advanced" styleClass="custom-button-class" (onUpload)="onUpload($event)" [multiple]="multiple" accept="image/*"
+    [maxFileSize]="maxSize">
+    <ng-template pTemplate="content">
+        <ul *ngIf="uploadedFiles.length">
+            <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+        </ul>
+    </ng-template>
+</p-fileUpload>
+    </div>
+    
+
+</div>

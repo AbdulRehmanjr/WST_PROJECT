@@ -11,9 +11,8 @@ import { Category } from 'src/app/classes/category';
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css']
 })
-export class CategoriesComponent implements AfterViewInit {
+export class CategoriesComponent{
 
-  loading: boolean = true
    categories: Category[] = [
     {id: 1, name: 'History', description: 'Past events and facts'},
     {id: 2, name: 'Geography', description: 'Locations and physical features'},
@@ -22,30 +21,6 @@ export class CategoriesComponent implements AfterViewInit {
     {id: 5, name: 'Sports', description: 'Physical competitions and games'},
   ];
   
-    displayedColumns: string[] = ['id', 'name', 'description'];
-    dataSource: MatTableDataSource<Category>;
-  
-    @ViewChild(MatPaginator) paginator: MatPaginator;
-    @ViewChild(MatSort) sort: MatSort;
-  
-    constructor() {
-      // Assign the data to the data source for the table to render
-      this.dataSource = new MatTableDataSource(this.categories);
-    }
-  
-    ngAfterViewInit() {
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-    }
-  
-    applyFilter(event: Event) {
-      const filterValue = (event.target as HTMLInputElement).value;
-      this.dataSource.filter = filterValue.trim().toLowerCase();
-  
-      if (this.dataSource.paginator) {
-        this.dataSource.paginator.firstPage();
-      }
-    }
   }
   
 

@@ -21,15 +21,9 @@ const routes:Routes = [
   {path:'user-dashboard',component:UserComponent,
     children:[
       {
-        path:'',component:QuizComponent,
-      },
-      {
         path:'quizList',component:QuizlistComponent,
       },{
         path:'quiz',component:QuizComponent
-      },
-      {
-        path:'**',component:QuizComponent,pathMatch:'full'
       }
     ]
   }

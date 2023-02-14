@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { TeacherComponent } from './teacher.component';
@@ -15,10 +16,9 @@ import { SharedModule } from '../shared/shared.module';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import {MatTableModule} from '@angular/material/table'
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import {TableModule} from 'primeng/table';
+import {FileUploadModule} from 'primeng/fileupload';
 
 const routes: Routes = [
   {
@@ -48,8 +48,9 @@ const routes: Routes = [
     MatCardModule,
     MatSidenavModule,
     SharedModule,
-    MatTableModule,
-    MatPaginatorModule,
+    TableModule,
+    HttpClientModule,
+    FileUploadModule,
     MatFormFieldModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),

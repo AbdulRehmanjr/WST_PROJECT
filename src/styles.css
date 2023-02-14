@@ -36,5 +36,5 @@
   font-weight: normal;
   font-style: normal;
 }
-html, body { height: 100%; }
+html, body { height: 100%; overflow-x: hidden;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #F72C41;}

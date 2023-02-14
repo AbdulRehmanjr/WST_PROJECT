@@ -13,6 +13,7 @@ export class SidenavComponent implements OnInit{
   view:number
   constructor(private _route:Router){}
   ngOnInit(): void {
+    console.log('side nav intialized')
   }
 
  
