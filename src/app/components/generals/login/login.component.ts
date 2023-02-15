@@ -55,6 +55,6 @@ export class LoginComponent implements OnInit {
     }
   }
   private  redirection(){
-    this.router.navigate(['user-dashboard']);
+    this.router.navigate(['admin-dashboard']);
   }
 }

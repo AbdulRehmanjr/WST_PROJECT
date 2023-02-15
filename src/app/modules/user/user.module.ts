@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { UserComponent } from './user.component';
 import { HeaderComponent } from '../../components/user/header/header.component';
-import { QuizlistComponent } from '../../components/user/quizlist/quizlist.component';
 import { QuizComponent } from '../../components/user/quiz/quiz.component';
 
 
@@ -13,7 +12,8 @@ import { SharedModule } from '../shared/shared.module';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { Quiz } from 'src/app/classes/quiz';
+import { QuizlistComponent } from 'src/app/components/shared/quizlist/quizlist.component';
+
 
 
 
@@ -33,7 +33,6 @@ const routes:Routes = [
   declarations: [
     UserComponent,
     HeaderComponent,
-    QuizlistComponent,
     QuizComponent,
   ],
   imports: [

@@ -20,13 +20,13 @@ export class SidenavComponent implements OnInit{
   /**
    * navigations
    */
-  home():void{
+  route_changing():void{
     
     if(this.view==1){
         this._route.navigate(['admin-dashboard'])
     }
     else{
-      if(this._route.url ==='/user-dashboard/quiz'){
+      if(this._route.url ==='/user-dashboard/quiz' ){
         swal.fire({
           title: 'Are you sure?',
           text: "You won't be able to revert this!",

@@ -5,12 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { TeacherComponent } from './teacher.component';
-import { CategoriesComponent } from '../../components/admin/categories/categories.component';
+import { CategoriesComponent } from 'src/app/components/admin/categories/categories.component';
 import { AddCategoryComponent } from '../../components/admin/add-category/add-category.component';
 import { AddQuizComponent } from '../../components/admin/add-quiz/add-quiz.component';
-import { QuizComponent } from '../../components/admin/quiz/quiz.component';
 import { AddQuestionsComponent } from '../../components/admin/add-questions/add-questions.component';
-import { QuizlistComponent } from 'src/app/components/user/quizlist/quizlist.component';
+import { QuizlistComponent } from 'src/app/components/shared/quizlist/quizlist.component';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -41,7 +40,6 @@ const routes: Routes = [
     CategoriesComponent,
     AddCategoryComponent,
     AddQuizComponent,
-    QuizComponent,
     AddQuestionsComponent,
   ],
   imports: [

@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AddQuizComponent {
   uploadedFiles: any[] = [];
-  multiple:boolean = false
+  multiple:boolean = true
   maxSize:number = 100000
   constructor() {}
 
