@@ -1,0 +1,10 @@
+.btn-start{
+  border: none;
+  font-family: 'Squid Game';
+  color:#002C5E;
+  background-color: #fff;
+}
+.btn-start:hover{
+  color:#fff;
+  background-color: #002C5E;
+}

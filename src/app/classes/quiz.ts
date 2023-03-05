@@ -1,6 +1,12 @@
+import { Category } from "./category"
+
 export class Quiz {
     id:number
-    name:string
-    category:string
+    title:string
+    description:string
+    category:Category
     numberOfQuestions:number
+    totalMarks:number
+    time:number
+    active:boolean
 }

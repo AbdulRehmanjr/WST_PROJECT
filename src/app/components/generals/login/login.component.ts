@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Login } from 'src/app/classes/login';
+import { LoginService } from 'src/app/services/login.service';
 import swal from 'sweetalert2';
 
 @Component({
@@ -15,46 +16,94 @@ export class LoginComponent implements OnInit {
   //  CurrentUser:any;
   constructor(
     private formBuilder: FormBuilder,
-
-    private router: Router
+    private router: Router,
+    private loginService:LoginService
   ) { }
 
   ngOnInit(): void {
     this.LoginForm = this.formBuilder.group({
-      username: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required,Validators.email]),
       password: new FormControl('', [Validators.required]),
     });
   }
-  get username(): any { return this.LoginForm.get('username').value; }
+
+  get email(): any { return this.LoginForm.get('email').value; }
   get password(): any { return this.LoginForm.get('password').value; }
 
   // form submission
   OnSubmit() {
-    console.log("Handling the submit button=> login");
+
     if (this.LoginForm.invalid) {
       this.LoginForm.markAllAsTouched();
       return;
     }
 
     let login = new Login();
-    login.username = this.LoginForm.controls['username'].value;
+
+    login.userEmail = this.LoginForm.controls['email'].value;
     login.password = this.LoginForm.controls['password'].value;
 
-    // checking blank 
-    if (login.username.trim() == "") {
+    // checking blank
+    if (login.userEmail.trim() == "") {
 
       swal.fire(
         'Error',
         'Username cannot be blank',
         'error'
       );
-      return;
+      return
     }
-    if(login){
-      this.redirection()
-    }
+
+    this.loginService.generateToken(login).subscribe({
+      next:(data:any)=>{
+        this.loginService.setToken(data.token)
+
+        this.loginService.currentUser(login).subscribe(
+          {
+            next:(data:any)=>{
+              console.log("Data from request",data)
+              this.loginService.setUser(data)
+
+            }
+            ,error(err) {
+                console.log(err)
+            },
+            complete:() =>{
+                console.log('completed seting user')
+                this.redirection()
+            },
+          }
+
+         )
+      },
+      error:(err)=>{
+        console.log(err)
+        swal.fire(
+          'Login Failed',
+          'Please enter valid username and password',
+          'error'
+        );
+      },
+      complete:()=>{
+        console.log(`completted token generation`)
+      }
+    })
   }
-  private  redirection(){
-    this.router.navigate(['admin-dashboard']);
+
+    private redirection():void {
+
+    const role =  this.loginService.getUserRole()
+
+    if( role== "TEACHER"){
+
+      this.router.navigate(['admin-dashboard'])
+
+    }else if(role == "USER"){
+
+      this.router.navigate(['user-dashboard'])
+    }
+    else{
+      this.router.navigate(['login'])
+    }
   }
 }

@@ -1,40 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
 
 @font-face {
-  font-family: 'Squid Game';
-  src: url('./assets/fonts/GameOfSquids-1GMVL.ttf') format('truetype');
+  font-family: "Squid Game";
+  src: url("./assets/fonts/GameOfSquids-1GMVL.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Chunk';
-  src: url('./assets/fonts/ChunkFivePrint.otf') format("opentype");
+  font-family: "Chunk";
+  src: url("./assets/fonts/ChunkFivePrint.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Fine';
-  src: url('./assets/fonts/FFF_Tusj.ttf') format('truetype');
+  font-family: "Fine";
+  src: url("./assets/fonts/FFF_Tusj.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Lobster';
-  src: url('./assets/fonts/Lobster_1.3.otf')format("opentype");
+  font-family: "Lobster";
+  src: url("./assets/fonts/Lobster_1.3.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'SeaSrn';
-  src: url('./assets/fonts/SEASRN__.ttf') format('truetype');
+  font-family: "SeaSrn";
+  src: url("./assets/fonts/SEASRN__.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Chunk Regular';
-  src: url('./assets/fonts/ChunkFive-Regular.otf') format("opentype");
+  font-family: "Chunk Regular";
+  src: url("./assets/fonts/ChunkFive-Regular.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
-html, body { height: 100%; overflow-x: hidden;}
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #F72C41;}
+
+:root {
+  --blue: #002C5E;
+}
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f72c41;
+}

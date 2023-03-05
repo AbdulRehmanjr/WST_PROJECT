@@ -6,20 +6,26 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './user.component';
 import { HeaderComponent } from '../../components/user/header/header.component';
 import { QuizComponent } from '../../components/user/quiz/quiz.component';
-
+import { QuizlistComponent } from 'src/app/components/shared/quizlist/quizlist.component';
+import { TimerComponent } from 'src/app/components/user/timer/timer.component';
 
 import { SharedModule } from '../shared/shared.module';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { QuizlistComponent } from 'src/app/components/shared/quizlist/quizlist.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { UserGuard } from 'src/app/security/user.guard';
 
 
 
 
 const routes:Routes = [
   {path:'user-dashboard',component:UserComponent,
+    canActivate:[UserGuard],
     children:[
+      {
+        path:'',component:QuizlistComponent
+      },
       {
         path:'quizList',component:QuizlistComponent,
       },{
@@ -34,12 +40,14 @@ const routes:Routes = [
     UserComponent,
     HeaderComponent,
     QuizComponent,
+    TimerComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     MatSidenavModule,
     MatCardModule,
+    MatProgressSpinnerModule,
     RouterModule.forChild(routes)
   ],
   exports:[

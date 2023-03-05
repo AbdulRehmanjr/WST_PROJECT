@@ -21,3 +21,12 @@ img{
     border: none;
     font-size: 50px;
 }
+.btn-login{
+    background-color: #F72C41;
+    color: #fff;
+}
+.btn-login:hover{
+    background-color: #fff;
+    color: #F72C41;
+    border: 2px solid #F72C41;
+}

@@ -1,23 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Login } from 'src/app/classes/login';
-import Swal from 'sweetalert2';
+import { User } from 'src/app/classes/user';
+import { SignupService } from 'src/app/services/signup.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent {
+export class SignupComponent  implements OnInit{
 
   SignupForm: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router
+    private _router:Router,
+    private signupService:SignupService
   ) { }
 
   ngOnInit(): void {
+
     this.SignupForm = this.formBuilder.group({
       username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
@@ -30,38 +33,45 @@ export class SignupComponent {
   get username(): any { return this.SignupForm.get('username').value; }
   get password(): any { return this.SignupForm.get('password').value; }
 
-  // form submission
-  OnSubmit() {
-    console.log("Handling the submit button=> login");
+  public OnSubmit() :void{
+
 
     if (this.SignupForm.invalid) {
       this.SignupForm.markAllAsTouched();
       return;
     }
 
-    let login = new Login();
-    login.username = this.username()
-    login.password = this.password()
+    let user = new User();
 
-    // checking blank 
-    if (login.username.trim() == "") {
+    user.userName = this.SignupForm.controls['username'].value
+    user.email = this.SignupForm.controls['email'].value
+    user.userPassword = this.SignupForm.controls['password'].value;
+    user.userType = this.SignupForm.controls['role'].value;
 
-      Swal.fire(
-        'Error',
-        'Username cannot be blank',
-        'error'
-      );
-      return;
-    }
+    console.log(user)
 
-    console.log("login=>" + login.username + " " + login.password);
-    //  api service call
+    this.signupService.signupUser(user).subscribe({
+      next:(value:any) =>{
+        swal.fire(
+          'Success!',
+          'User Created Successfully',
+          'success'
+        );
+        this._router.navigate(['login'])
+      },
+      error(err:Error) {
+        swal.fire(
+          'Error!',
+          `${err.message}`,
+          'error'
+        );
+      },
+      complete:()=> {
+        console.log('completed')
+      },
+    })
+
 
   }
-}
-interface Singup {
-  name:string
-  password:string
-  email:string
-  role:string 
+
 }

@@ -16,12 +16,17 @@ import { SharedModule } from '../shared/shared.module';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
 import {TableModule} from 'primeng/table';
 import {FileUploadModule} from 'primeng/fileupload';
+import { AdminGuard } from 'src/app/security/admin.guard';
 
 const routes: Routes = [
   {
     path: 'admin-dashboard', component: TeacherComponent,
+    canActivate:[AdminGuard],
     children: [
       { path: 'categories', component: CategoriesComponent },
       { path: 'add-category', component: AddCategoryComponent },
@@ -43,6 +48,8 @@ const routes: Routes = [
     AddQuestionsComponent,
   ],
   imports: [
+    MatSlideToggleModule,
+    MatSelectModule,
     MatCardModule,
     MatSidenavModule,
     SharedModule,

@@ -13,10 +13,10 @@
 .btn-start{
     border: none;
     font-family: 'Squid Game';
-    color:#f57;
+    color:#002C5E;
     background-color: #fff;
 }
 .btn-start:hover{
     color:#fff;
-    background-color: #f57;
+    background-color: #002C5E;
 }

@@ -18,12 +18,13 @@ import {MatSelectModule} from '@angular/material/select';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    LandingpageComponent
+    LandingpageComponent,
   ],
   imports: [
     BrowserModule,

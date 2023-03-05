@@ -1,19 +1,86 @@
-<div class="row">
-<div class="col-md-4 offset-md-4">
-    <img src="../../../../assets/images/file.png" alt="file upload">
-</div>
-</div>
-<div class="row">
-    <div class="col-md-6 offset-md-3">
-        <p-fileUpload mode="advanced" styleClass="custom-button-class" (onUpload)="onUpload($event)" [multiple]="multiple" 
-    [maxFileSize]="maxSize">
-    <ng-template pTemplate="content">
-        <ul *ngIf="uploadedFiles.length">
-            <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-        </ul>
-    </ng-template>
-</p-fileUpload>
-    </div>
-    
 
-</div>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <mat-card>
+          <h1 class="text-center">Add Quiz details</h1>
+          <form [formGroup]="addquizForm" (ngSubmit)="OnSubmit()">
+            <!-- title -->
+            <div class="form-outline mb-4">
+              <input type="text"  formControlName = "title" class="form-control form-control-lg" />
+              <label class="form-label" >Title</label>
+            </div>
+            <ng-container *ngIf="title.invalid && (title.dirty || title.touched)">
+                <mat-error *ngIf="title.errors?.['required'] ">
+                    Title is required
+                </mat-error>
+            </ng-container>
+            <!-- description -->
+            <div class="form-outline mb-4">
+              <textarea cols="5" rows="3" formControlName="description"class="form-control form-control-lg">
+              </textarea>
+              <label class="form-label">Description</label>
+            </div>
+            <ng-container *ngIf="description.invalid && (description.dirty || description.touched)">
+                <mat-error *ngIf="description.errors?.['required'] ">
+                  Description is required
+                </mat-error>
+            </ng-container>
+            <!-- category -->
+            <div class="row">
+              <div class="col-md-3">
+                <mat-select formControlName="category" matInput>
+                  <mat-option
+                    *ngFor="let category of categories"
+                    value="{{category.id}}"
+
+                    >{{ category.name }}</mat-option>
+                </mat-select>
+
+              <div
+                *ngIf="category.invalid && (category.dirty || category.touched)"
+              >
+                <mat-error *ngIf="category.errors?.['required'] ">
+                  Category is required
+                </mat-error>
+              </div>
+              </div>
+              <!-- toggler -->
+              <div class="col-md-3">
+                <mat-slide-toggle formControlName="active" [checked]="false" >
+                  Publish status
+                </mat-slide-toggle>
+              </div>
+              <div class="col-md-3">
+                <div class="form-outline mb-4">
+                  <input type="text"  formControlName = "totalmarks" class="form-control form-control-lg" />
+                  <label class="form-label" >Marks</label>
+                </div>
+                <ng-container *ngIf="totalmarks.invalid && (totalmarks.dirty || totalmarks.touched)">
+                    <mat-error *ngIf="totalmarks.errors?.['required'] ">
+                        Marks are required
+                    </mat-error>
+                </ng-container>
+              </div>
+              <div class="col-md-3">
+                <div class="form-outline mb-4">
+                  <input type="text"  formControlName = "timer" class="form-control form-control-lg" />
+                  <label class="form-label" >Time</label>
+                </div>
+                <ng-container *ngIf="timer.invalid && (timer.dirty || timer.touched)">
+                    <mat-error *ngIf="timer.errors?.['required'] ">
+                        Time is required
+                    </mat-error>
+                </ng-container>
+              </div>
+            </div>
+              <div class="row">
+            <div class="container text-center">
+              <button  class="btn-start" type="submit" mat-raised-button color="primary">
+                Add Quiz
+              </button>
+            </div>
+          </div>
+          </form>
+        </mat-card>
+      </div>
+    </div>

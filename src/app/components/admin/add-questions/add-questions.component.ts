@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-questions.component.css']
 })
 export class AddQuestionsComponent {
+  uploadedFiles: any[] = [];
+  multiple:boolean = true
+  maxSize:number = 100000
+  constructor() {}
 
+  onUpload(event:any) {
+      for(let file of event.files) {
+          this.uploadedFiles.push(file);
+      }
+  }
 }

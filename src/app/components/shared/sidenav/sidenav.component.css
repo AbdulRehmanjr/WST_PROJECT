@@ -3,10 +3,14 @@
     flex-direction: column;
 }
 button{
+    font-family: 'Times New Roman', Times, serif;
     border: none;
-    color:#f57;
+    color: #002C5E;
     font-size:20px;
     background-color: #fff;
+}
+button:hover{
+  background-color: antiquewhite;
 }
 img{
     width:150px;

@@ -11,7 +11,7 @@
             </div>
             <div class="col-md-6 col-md-7 d-flex align-items-center">
                 <div class="card-body p-4 p-lg-5 text-black">
-                
+
                         <div class="d-flex align-items-center mb-3 pb-1">
                             <i class="fas fa-cubes fa-2x me-3" style="color: #F72C41;"></i>
                             <span class="h1 fw-bold mb-0">QUIZ SPY</span>
@@ -19,15 +19,15 @@
                           <form [formGroup]="LoginForm" (ngSubmit)="OnSubmit()">
                             <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your Account</h5>
                             <div class="form-outline mb-4">
-                              <input type="text"  formControlName = "username" class="form-control form-control-lg" />
+                              <input type="text"  formControlName = "email" class="form-control form-control-lg" />
                               <label class="form-label" >User Name</label>
                             </div>
-                            <ng-container *ngIf="username.invalid && (username.dirty || username.touched)">
-                                <mat-error *ngIf="username.errors?.['required'] ">
+                            <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
+                                <mat-error *ngIf="email.errors?.['required'] ">
                                     User Name is required
                                 </mat-error>
-                            </ng-container> 
-                                
+                            </ng-container>
+
                             <div class="form-outline mb-4">
                               <input type="password" formControlName="password"class="form-control form-control-lg" />
                               <label class="form-label">Password</label>
@@ -36,19 +36,19 @@
                                 <mat-error *ngIf="password.errors?.['required'] ">
                                     Password is required
                                 </mat-error>
-                            </ng-container> 
-          
+                            </ng-container>
+
                             <div class="pt-1 mb-4">
-                              <button  [disabled]="!LoginForm.valid" type="submit" class="btn btn-lg btn-block">Login</button>
-                              
+                              <button type="submit" class="btn btn-lg btn-block btn-login">Login</button>
+
                             </div>
-          
+
                             <!-- <a class="small text-muted" href="#!">Forgot password?</a>
                             <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
                                 style="color: #393f81;">Register here</a></p>
                             <a href="#!" class="small text-muted">Terms of use.</a>
                             <a href="#!" class="small text-muted">Privacy policy</a> -->
-                          </form> 
+                          </form>
                 </div>
             </div>
            </div>
