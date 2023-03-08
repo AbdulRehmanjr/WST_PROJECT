@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { TeacherComponent } from './teacher.component';
 import { CategoriesComponent } from 'src/app/components/admin/categories/categories.component';
@@ -22,17 +23,21 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {TableModule} from 'primeng/table';
 import {FileUploadModule} from 'primeng/fileupload';
 import { AdminGuard } from 'src/app/security/admin.guard';
+import { WelcomeComponent } from 'src/app/components/shared/welcome/welcome.component';
 
 const routes: Routes = [
   {
     path: 'admin-dashboard', component: TeacherComponent,
     canActivate:[AdminGuard],
     children: [
+      {
+        path:'',component:WelcomeComponent
+      },
       { path: 'categories', component: CategoriesComponent },
       { path: 'add-category', component: AddCategoryComponent },
       { path: 'quizzes', component: QuizlistComponent },
       { path: 'add-quiz', component: AddQuizComponent },
-      { path: 'add-question/:quizId', component: AddQuestionsComponent },
+      { path: 'add-question', component: AddQuestionsComponent },
     ]
   },
 
@@ -48,6 +53,7 @@ const routes: Routes = [
     AddQuestionsComponent,
   ],
   imports: [
+    FormsModule,
     MatSlideToggleModule,
     MatSelectModule,
     MatCardModule,

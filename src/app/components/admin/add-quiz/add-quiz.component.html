@@ -27,13 +27,13 @@
             </ng-container>
             <!-- category -->
             <div class="row">
-              <div class="col-md-3">
-                <mat-select formControlName="category" matInput>
+              <div class="col-md-2">
+                <mat-select  placeholder="Select Category"formControlName="category" matInput>
                   <mat-option
                     *ngFor="let category of categories"
-                    value="{{category.id}}"
+                    value="{{category.categoryId}}"
 
-                    >{{ category.name }}</mat-option>
+                    >{{ category.title }}</mat-option>
                 </mat-select>
 
               <div
@@ -45,12 +45,23 @@
               </div>
               </div>
               <!-- toggler -->
-              <div class="col-md-3">
+              <div class="col-md-2">
                 <mat-slide-toggle formControlName="active" [checked]="false" >
                   Publish status
                 </mat-slide-toggle>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-2">
+                <div class="form-outline mb-4">
+                  <input type="text"  formControlName = "questions" class="form-control form-control-lg" />
+                  <label class="form-label" >Questions</label>
+                </div>
+                <ng-container *ngIf="questions.invalid && (questions.dirty || questions.touched)">
+                    <mat-error *ngIf="questions.errors?.['required'] ">
+                        Questions are required
+                    </mat-error>
+                </ng-container>
+              </div>
+              <div class="col-md-2">
                 <div class="form-outline mb-4">
                   <input type="text"  formControlName = "totalmarks" class="form-control form-control-lg" />
                   <label class="form-label" >Marks</label>

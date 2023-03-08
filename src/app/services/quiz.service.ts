@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Quiz } from '../classes/quiz';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,10 @@ export class QuizService {
 
     return this.http.get(`${this.baseUrl}/${id}`);
   }
-  addQuiz(quiz:any){
-    return this.http.post(`${this.baseUrl}/add-quiz`,quiz);
+  addQuiz(quiz:Quiz){
+    return this.http.post(`${this.baseUrl}/create`,quiz,{
+      responseType:'text'
+    });
   }
   deleteQuiz(id:number){
     return this.http.delete(`${this.baseUrl}/${id}`);

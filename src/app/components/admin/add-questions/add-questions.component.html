@@ -4,16 +4,24 @@
   </div>
   </div>
   <div class="row">
-      <div class="col-md-6 offset-md-3">
-          <p-fileUpload mode="advanced" styleClass="custom-button-class" (onUpload)="onUpload($event)" [multiple]="multiple"
-      [maxFileSize]="maxSize">
-      <ng-template pTemplate="content">
-          <ul *ngIf="uploadedFiles.length">
-              <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-          </ul>
-      </ng-template>
-  </p-fileUpload>
+      <div class="col-md-4">
+        <mat-select matInput [(ngModel)]="selectedValue"placeholder="Select Quiz">
+          <mat-option
+            *ngFor="let quiz of quizes"
+            value="{{quiz.quizId}}"
+            >{{ quiz.title }}</mat-option>
+        </mat-select>
+        <div class="col-md-4">
+          <input  name="fileuploading" type="file" (change)="onChange($event)">
+      </div>
+      <div class="row">
+        <div class="col-md-3 offset-md-4">
+          <button mat-raised-button color="primary" (click)="onUpload()">Upload</button>
+        </div>
       </div>
 
-
   </div>
+
+
+
+

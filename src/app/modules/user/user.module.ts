@@ -15,6 +15,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { UserGuard } from 'src/app/security/user.guard';
+import { WelcomeComponent } from 'src/app/components/shared/welcome/welcome.component';
 
 
 
@@ -24,12 +25,12 @@ const routes:Routes = [
     canActivate:[UserGuard],
     children:[
       {
-        path:'',component:QuizlistComponent
+        path:'',component:WelcomeComponent
       },
       {
         path:'quizList',component:QuizlistComponent,
       },{
-        path:'quiz',component:QuizComponent
+        path:':quizId/questions',component:QuizComponent
       }
     ]
   }

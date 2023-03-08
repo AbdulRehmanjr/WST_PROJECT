@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
@@ -8,20 +8,22 @@ import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
   styleUrls: ['./timer.component.css']
 })
 export class TimerComponent  implements OnInit{
-  color: ThemePalette 
+  color: ThemePalette
   mode: ProgressSpinnerMode
   value:number
-  timer:number 
-  question :number = 10
+  @Input()
+  timer:any
   ngOnInit(): void {
-    this.timer = 10*2*60
+    // this.timer = Number(this.timer)*60
+    console.log(this.timer)
      this.mode = 'determinate'
      this.color = 'primary'
      this.startTimer()
   }
   startTimer(){
+    console.log('timer',this.timer)
     setInterval(()=>{
-      this.value = (this.timer/(this.question*2*60))*100
+      this.value = (this.timer/(this.timer*60))*100
       console.log(`timer ${this.timer} value ${this.value}`)
       if(this.timer<=0){
         console.log('close')
@@ -31,9 +33,9 @@ export class TimerComponent  implements OnInit{
       else{
         this.timer--
       }
-    },1000) 
+    },1000)
   }
 
 
-  
+
 }

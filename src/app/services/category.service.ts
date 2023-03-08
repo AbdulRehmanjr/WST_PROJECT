@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Category } from '../classes/category';
 
 @Injectable({
@@ -13,12 +12,14 @@ export class CategoryService {
 
   getCategoryList(){
      console.log("getting all data");
-    return this.http.get(`${this.baseUrl}`+"/category/all", { responseType: 'json' });
+    return this.http.get<Category[]>(`${this.baseUrl}`+"/category/all", { responseType: 'json' });
   }
 
   addCategory(category: Category) {
     console.log("Adding a category");
-    return this.http.post(`${this.baseUrl}`+"/category/add-category", category);
+    return this.http.post(`${this.baseUrl}`+"/category/create", category,{
+      responseType:'text'
+    });
   }
 
 }

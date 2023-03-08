@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Category } from 'src/app/classes/category';
+import { CategoryService } from 'src/app/services/category.service';
+
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-category',
@@ -11,18 +14,19 @@ export class AddCategoryComponent implements OnInit {
 
   addcategoryForm:FormGroup;
   constructor(private formBuilder:FormBuilder,
+    private category_service:CategoryService
     ) { }
 
   ngOnInit(): void {
     this.addcategoryForm = this.formBuilder.group(
       {
-        name: new FormControl('',[Validators.required]),
+        title: new FormControl('',[Validators.required]),
         description: new FormControl('',[Validators.required]),
       }
     );
   }
 
-  get name():any {return this.addcategoryForm.get('name');}
+  get title():any {return this.addcategoryForm.get('title');}
   get description():any {return this.addcategoryForm.get('description');}
 
   // form submission
@@ -35,28 +39,30 @@ export class AddCategoryComponent implements OnInit {
     }
 
     let category = new Category();
-    category.name = this.addcategoryForm.controls['title'].value;
+    category.title = this.addcategoryForm.controls['title'].value;
     category.description = this.addcategoryForm.controls['description'].value;
 
-  //   this.catService.addCategory(category).subscribe(
-  //     (data:any)=>{
-  //       console.log(data);
-  //       swal.fire(
-  //         'Success',
-  //         'Category added successfully',
-  //         'success'
-  //       );
-  //     },
-  //     (error)=>{
-  //       console.log(error);
-  //       swal.fire(
-  //         'Error',
-  //         'Something went wrong',
-  //         'error'
-  //       );
-  //     }
-      
-  //   );
-    
+
+    this.category_service.addCategory(category).subscribe({
+      next:()=>{
+        Swal.fire(
+                  'Success',
+                  'Category added successfully',
+                  'success'
+        )
+      },
+      error:(err:Error)=>{
+        console.log(err.message)
+        Swal.fire(
+          'Error',
+          'Error adding category',
+          'error'
+        )
+      },
+      complete:()=>{
+        console.log('add category observable completed')
+      }
+    })
+
    }
 }

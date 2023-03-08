@@ -4,8 +4,9 @@ import { Category } from 'src/app/classes/category';
 import { Quiz } from 'src/app/classes/quiz';
 import { CategoryService } from 'src/app/services/category.service';
 import { QuizService } from 'src/app/services/quiz.service';
+import Swal from 'sweetalert2';
 
-import swal from 'sweetalert2';
+
 @Component({
   selector: 'app-add-quiz',
   templateUrl: './add-quiz.component.html',
@@ -56,19 +57,14 @@ export class AddQuizComponent implements OnInit {
 
   OnSubmit(){
     console.log('form submission of add new quiz');
-    //if form is invalid
-    if(this.addquizForm.invalid){
-      this.addquizForm.markAllAsTouched();
-      return;
-    }
     // quizs
     let quiz = new Quiz();
     let cat = new Category();
 
-    cat.id = this.category.value;
+    cat.categoryId = this.category.value;
 
     quiz.title = this.addquizForm.controls['title'].value;
-    quiz.description = this.addquizForm.controls['description'].value;
+    quiz.content = this.addquizForm.controls['description'].value;
      quiz.category = cat;
     quiz.totalMarks = this.addquizForm.controls['totalmarks'].value;
     quiz.numberOfQuestions = this.addquizForm.controls['questions'].value;
@@ -76,20 +72,26 @@ export class AddQuizComponent implements OnInit {
     quiz.active = this.addquizForm.controls['active'].value;
 
     console.log(quiz);
-    this.quizService.addQuiz(quiz).subscribe(
-      data=>{
-        console.log(data);
-        swal.fire('Sucess!!!!',
-        'Quiz added successfully',
-        'success');
-        this.addquizForm.reset();
-        this.addquizForm.markAllAsTouched();
-      },error=>{
-        console.log(error);
-        swal.fire('Error!!!!',
-        'Quiz not added',
-        'error');
+
+    this.quizService.addQuiz(quiz).subscribe({
+      next:(data)=>{
+      Swal.fire(
+        'Sucess',
+        'Quiz Added Sucessfully',
+        'success'
+      )
+      },
+      error:(err)=>{
+        Swal.fire(
+          'Error',
+          'Failed',
+          'error'
+        )
+      },
+      complete:()=>{
+        console.log('completed quiz adding fucntion')
       }
-    );
+    })
+
   }
 }

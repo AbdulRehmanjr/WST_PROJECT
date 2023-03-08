@@ -1,9 +1,9 @@
 import { Category } from "./category"
 
 export class Quiz {
-    id:number
+    quizId:number
     title:string
-    description:string
+    content:string
     category:Category
     numberOfQuestions:number
     totalMarks:number
